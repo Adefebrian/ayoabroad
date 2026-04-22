@@ -654,14 +654,14 @@
 
     {"no": 12, "gap": "Program online semi-intensif (bukan full camp, bukan full self-study) untuk pekerja aktif yang tetap bekerja", "category": "Aksesibilitas & Fleksibilitas", "failed_by": "Semua Kampung Inggris (full camp), kursus premium (jadwal kaku)", "market_value": "Tinggi"},
     {"no": 13, "gap": "Kelas weekend-only atau malam hari untuk karyawan kantoran", "category": "Aksesibilitas & Fleksibilitas", "failed_by": "Mayoritas (hanya Manhattan Elite Prep menawarkan parsial)", "market_value": "Tinggi"},
-    {"no": 14, "gap": "Asrama intensif/camp mini di kota besar (Jakarta, Surabaya, Bandung) — bukan hanya di Pare", "category": "Aksesibilitas & Fleksibilitas", "failed_by": "Semua Kampung Inggris (terpusat Pare)", "market_value": "Tinggi"},
+    {"no": 14, "gap": "Asrama intensif/camp mini di kota besar (Jakarta, Surabaya, Bandung) bukan hanya di Pare", "category": "Aksesibilitas & Fleksibilitas", "failed_by": "Semua Kampung Inggris (terpusat Pare)", "market_value": "Tinggi"},
     {"no": 15, "gap": "Platform mobile-first untuk belajar on-the-go: microlearning, flashcard, simulasi tes di HP", "category": "Aksesibilitas & Fleksibilitas", "failed_by": "Semua (Zoom/konvensional)", "market_value": "Medium-Tinggi"},
 
     {"no": 16, "gap": "Metode cicilan/BNPL yang konsisten untuk semua paket premium", "category": "Model Bisnis", "failed_by": "Hanya Vista (Danacita) & WorkAbroad.id (3x cicil)", "market_value": "Tinggi"},
     {"no": 17, "gap": "Garansi skor IELTS universal (tanpa syarat level masuk B1)", "category": "Model Bisnis", "failed_by": "British Council (wajib B1), Lister (syarat berlaku)", "market_value": "Tinggi"},
     {"no": 18, "gap": "Konsultan study abroad fee-based yang 100% netral (bukan model agen komisi universitas)", "category": "Model Bisnis", "failed_by": "SUN, IDP, Vista, ICAN (semua model agen)", "market_value": "Sangat Tinggi"},
     {"no": 19, "gap": "Model freemium: akses dasar gratis (placement test, AI chatbot) + upgrade berbayar", "category": "Model Bisnis", "failed_by": "Semua (tidak ada yang offer freemium digital)", "market_value": "Medium-Tinggi"},
-    {"no": 20, "gap": "Transparansi harga penuh tanpa wajib konseling — semua harga di-publish terbuka", "category": "Model Bisnis", "failed_by": "Prep Zone, Kaplan, EduBridge, GoAbroad, TenHal (by request)", "market_value": "Tinggi"},
+    {"no": 20, "gap": "Transparansi harga penuh tanpa wajib konseling, semua harga di-publish terbuka", "category": "Model Bisnis", "failed_by": "Prep Zone, Kaplan, EduBridge, GoAbroad, TenHal (by request)", "market_value": "Tinggi"},
 
     {"no": 21, "gap": "Kelas English korporat B2B khusus perusahaan multinasional dengan kurikulum industri-spesifik", "category": "Segmen Underserved", "failed_by": "EF & British Council (generik), WSE (terlalu mahal)", "market_value": "Sangat Tinggi"},
     {"no": 22, "gap": "Program khusus lulusan SMK/D3 yang ingin upgrade ke kerja luar negeri (bukan hanya sarjana)", "category": "Segmen Underserved", "failed_by": "Semua (target S1+)", "market_value": "Tinggi"},
