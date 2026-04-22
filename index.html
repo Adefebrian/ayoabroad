@@ -438,7 +438,7 @@
       <div style="height: 60px;"></div>
 
       <!-- Financial Projection Charts -->
-      <div class="charts-grid" style="margin-bottom: var(--space-3xl);">
+      <div class="charts-grid" style="margin-bottom: var(--space-xl);">
         
         <!-- Chart A: Line Chart -->
         <div class="glass-card chart-card">
@@ -462,6 +462,39 @@
           </div>
         </div>
 
+        <!-- Chart C: Margin Trends -->
+        <div class="glass-card chart-card">
+          <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
+            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Tren Profitabilitas (Margin)</h3>
+            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Persentase Laba Kotor, Operasi, dan Bersih</p>
+          </div>
+          <div class="chart-wrapper" style="height: 350px; width: 100%;">
+            <canvas id="marginTrendChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart D: Cohort Growth -->
+        <div class="glass-card chart-card">
+          <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
+            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Skala Operasional (Efisiensi)</h3>
+            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Pertumbuhan Jumlah Kelas / Tutor Aktif</p>
+          </div>
+          <div class="chart-wrapper" style="height: 350px; width: 100%;">
+            <canvas id="cohortGrowthChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chart E: Full width Cash Flow Decomposition -->
+      <div class="glass-card chart-card full-width" style="margin-bottom: var(--space-3xl); padding: var(--space-2xl);">
+        <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
+          <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Dekomposisi Arus Kas & Skalabilitas (Scale Effect)</h3>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Membuktikan bagaimana OPEX (Biaya Operasional) menjadi proporsi yang semakin kecil dari total Gross Revenue berkat otomatisasi AI.</p>
+        </div>
+        <div class="chart-wrapper" style="height: 400px; width: 100%;">
+          <canvas id="cashflowDecompositionChart"></canvas>
+        </div>
       </div>
 
       <!-- Summary Insight -->

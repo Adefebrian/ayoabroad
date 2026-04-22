@@ -703,6 +703,9 @@ function initAllCharts(data) {
   renderRangeChart(data);
   renderFinancialProjectionChart();
   renderRevenueBreakdownChart();
+  renderMarginTrendChart();
+  renderCohortGrowthChart();
+  renderCashflowDecompositionChart();
 }
 
 /**
@@ -840,6 +843,195 @@ function renderRevenueBreakdownChart() {
           }
         },
         legend: { position: 'top' }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          grid: { display: false }
+        },
+        y: {
+          stacked: true,
+          beginAtZero: true,
+          grid: { color: 'rgba(212, 175, 55, 0.1)' },
+          ticks: { callback: (value) => 'Rp ' + value + ' M' }
+        }
+      }
+    }
+  });
+}
+
+/**
+ * CHART 11: Profitability Margins (Gross, Operating, Net)
+ */
+function renderMarginTrendChart() {
+  const ctx = document.getElementById('marginTrendChart');
+  if (!ctx) return;
+
+  if (chartInstances['margin-trend']) chartInstances['margin-trend'].destroy();
+
+  const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
+  const gross = [75.4, 73.6, 73.6, 73.3, 73.0, 72.4, 72.6, 72.0, 70.4, 69.7, 68.7, 68.1, 67.4, 65.8, 65.1];
+  const operating = [26.4, 35.6, 44.3, 49.3, 52.7, 49.0, 50.7, 47.9, 49.1, 48.3, 47.1, 46.2, 45.3, 45.9, 45.0];
+  const net = [20.4, 27.7, 34.5, 38.4, 41.1, 38.2, 39.5, 37.4, 38.3, 37.6, 36.7, 36.0, 35.3, 35.8, 35.1];
+
+  chartInstances['margin-trend'] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Gross Margin (%)',
+          data: gross,
+          borderColor: '#D4AF37', // Gold
+          backgroundColor: '#D4AF37',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 3,
+          tension: 0.3
+        },
+        {
+          label: 'Operating Margin (%)',
+          data: operating,
+          borderColor: '#3498DB', // Blue
+          backgroundColor: '#3498DB',
+          borderWidth: 2,
+          pointRadius: 3,
+          tension: 0.3
+        },
+        {
+          label: 'Net Margin (%)',
+          data: net,
+          borderColor: '#2ECC71', // Green
+          backgroundColor: '#2ECC71',
+          borderWidth: 3,
+          pointRadius: 4,
+          tension: 0.3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        tooltip: {
+          callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y}%` }
+        },
+        legend: { position: 'top' }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(212, 175, 55, 0.05)' } },
+        y: {
+          grid: { color: 'rgba(212, 175, 55, 0.1)' },
+          ticks: { callback: (value) => value + '%' }
+        }
+      }
+    }
+  });
+}
+
+/**
+ * CHART 12: Cohort Growth
+ */
+function renderCohortGrowthChart() {
+  const ctx = document.getElementById('cohortGrowthChart');
+  if (!ctx) return;
+
+  if (chartInstances['cohort-growth']) chartInstances['cohort-growth'].destroy();
+
+  const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
+  const cohorts = [8, 11, 14, 17, 20, 20, 21, 21, 25, 25, 25, 25, 25, 29, 29];
+
+  chartInstances['cohort-growth'] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Total Kelas (Cohort) Aktif',
+        data: cohorts,
+        backgroundColor: 'rgba(243, 156, 18, 0.8)', // Orange/Gold
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top' }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(212, 175, 55, 0.1)' }
+        }
+      }
+    }
+  });
+}
+
+/**
+ * CHART 13: Cash Flow Decomposition
+ */
+function renderCashflowDecompositionChart() {
+  const ctx = document.getElementById('cashflowDecompositionChart');
+  if (!ctx) return;
+
+  if (chartInstances['cashflow-decomp']) chartInstances['cashflow-decomp'].destroy();
+
+  const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
+  const cogs = [0.79, 1.13, 1.52, 1.92, 2.38, 2.49, 2.74, 2.86, 3.56, 3.72, 3.61, 3.78, 3.96, 4.80, 5.02];
+  const opex = [1.58, 1.63, 1.68, 1.73, 1.78, 2.11, 2.19, 2.46, 2.55, 2.64, 2.50, 2.59, 2.69, 2.78, 2.88];
+  const taxOthers = [0.20, 0.34, 0.56, 0.79, 1.02, 0.98, 1.11, 1.09, 1.29, 1.31, 1.21, 1.21, 1.21, 1.43, 1.44];
+  const netProfit = [0.66, 1.19, 1.98, 2.77, 3.62, 3.44, 3.94, 3.82, 4.60, 4.63, 4.24, 4.27, 4.29, 5.02, 5.04];
+
+  chartInstances['cashflow-decomp'] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Net Profit (Laba Bersih)',
+          data: netProfit,
+          backgroundColor: '#2ECC71', // Green
+          borderRadius: { topLeft: 4, topRight: 4, bottomLeft: 0, bottomRight: 0 }
+        },
+        {
+          label: 'Tax & Depr (Pajak & Lainnya)',
+          data: taxOthers,
+          backgroundColor: '#E74C3C', // Redish
+          borderRadius: 0
+        },
+        {
+          label: 'OPEX (Beban Operasional)',
+          data: opex,
+          backgroundColor: '#3498DB', // Blue
+          borderRadius: 0
+        },
+        {
+          label: 'COGS (Biaya Pokok)',
+          data: cogs,
+          backgroundColor: '#F39C12', // Orange/Yellow
+          borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 4, bottomRight: 4 }
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.label}: Rp ${ctx.parsed.y.toFixed(2)} Miliar`
+          }
+        },
+        legend: {
+          position: 'top',
+          reverse: true // Show Net Profit at top
+        }
       },
       scales: {
         x: {
