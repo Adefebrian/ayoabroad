@@ -26,6 +26,15 @@
 
 Indonesia menghadapi lonjakan permintaan layanan persiapan studi dan kerja luar negeri. Riset menunjukkan lebih dari 7,2 juta WNI bekerja di luar negeri (BPS, 2024), sementara jumlah mahasiswa Indonesia yang berkuliah di luar negeri terus meningkat pasca pandemi. Namun, ekosistem lembaga yang ada masih terfragmentasi: ada yang fokus hanya bahasa, ada yang murni konsultan, ada yang khusus visa, dan tidak ada satu pemain pun yang menyentuh keempat segmen secara bersamaan dalam satu atap.
 
+**Titik Nyeri Konsumen (Consumer Pain Points):**
+
+Saat ini, calon mahasiswa atau pekerja yang ingin berkarir di luar negeri harus melewati proses yang mahal, ribet, dan penuh ketidakpastian:
+
+1. **Fragmentasi Journey:** Seorang lulusan SMA yang ingin kuliah S1 di luar negeri harus membayar terpisah ke 3-4 lembaga berbeda: tempat kursus IELTS (Rp 5-15 Jt), agen konsultan universitas (Rp 3-10 Jt), jasa penerjemah dokumen, dan kadang agen visa terpisah. Total biaya bisa mencapai Rp 20-40 Jt hanya untuk *persiapan*, belum termasuk biaya kuliah.
+2. **Harga Tidak Transparan:** Dari 31 kompetitor yang kami riset, mayoritas tidak menampilkan harga di website mereka. Calon pelanggan harus "konsultasi dulu" (alias datang ke kantor untuk di-closing). Ini menciptakan informasi asimetris yang merugikan konsumen.
+3. **Tidak Ada Inovasi Teknologi:** Tidak ada satu pun dari 31 kompetitor yang menerapkan pendekatan AI-first. Semua masih mengandalkan model kelas konvensional (tatap muka/Zoom) dengan jadwal tetap. Tidak ada personalisasi kurikulum, tidak ada AI-matching universitas, tidak ada chatbot konsultasi 24/7.
+4. **Tidak Ada Garansi Hasil:** Hanya segelintir lembaga yang berani memberikan garansi skor (score guarantee). Mayoritas mengambil uang pelanggan tanpa jaminan output yang terukur.
+
 **Peluang yang kami kejar:**
 
 Perusahaan baru kami dirancang untuk menjadi SATU-SATUNYA lembaga di Indonesia yang menggabungkan:
@@ -50,6 +59,48 @@ Website ini adalah **pitching deck interaktif berbasis web** untuk:
 2. Mengidentifikasi celah pasar (whitespace) yang belum diisi kompetitor
 3. Membangun argumen strategis mengapa perusahaan baru ini layak diluncurkan
 4. Menjadi referensi penetapan harga & positioning produk
+
+### 1.3 Model Bisnis & Revenue Streams
+
+Ayoabroad! dirancang dengan arsitektur pendapatan 3 pilar yang saling memperkuat:
+
+#### Pilar 1: B2C Premium & Bundling (Revenue Utama)
+
+| Produk | Target | Estimasi Harga | Model Pembayaran |
+|--------|--------|----------------|------------------|
+| Bundel Study Abroad Complete | Segmen A (SMA) | Rp 15-25 Jt | Cicilan 6-12 bulan / BNPL |
+| Bundel Work Abroad Ready | Segmen B (Fresh Grad) | Rp 8-18 Jt | Cicilan 3-6 bulan |
+| Bundel Immigration Path | Segmen C (Profesional) | Rp 20-35 Jt | Cicilan 12 bulan |
+| Paket Kursus Satuan (IELTS/GMAT) | Semua | Rp 3-8 Jt | Bayar langsung |
+
+**Strategi Kunci:** Bundling all-in-one yang menggabungkan kursus bahasa + konsultasi + dokumen + visa dalam satu paket lebih murah dari beli terpisah. Memberikan cicilan/BNPL (Buy Now Pay Later) untuk menjangkau Gen Z yang belum memiliki daya beli besar.
+
+**Model Freemium sebagai Top-of-Funnel:**
+- Gratis: Placement test AI, konsultasi awal via chatbot, database universitas/lowongan
+- Berbayar: Kursus intensif, mentoring 1-on-1, dokumen handling, garansi skor
+
+#### Pilar 2: B2B Corporate English (Revenue Berulang)
+
+| Produk | Target | Estimasi Harga | Model |
+|--------|--------|----------------|-------|
+| Corporate English Program | Perusahaan multinasional | Rp 5-15 Jt/karyawan/tahun | Kontrak tahunan |
+| Industry-Specific English | Startup, manufaktur | Rp 3-8 Jt/karyawan/6 bulan | Per batch |
+| Executive Communication | C-Level / Manager | Rp 15-25 Jt/orang | Private coaching |
+
+**Strategi Kunci:** Mengisi celah pasar yang masih kosong: English korporat dengan kurikulum industri-spesifik (bukan generic). Dari 31 kompetitor, hanya 2-3 yang menyentuh B2B, dan tidak satupun yang menawarkan kurikulum yang di-tailor per industri.
+
+#### Pilar 3: AI-First Cost Efficiency (Margin Booster)
+
+AI bukan sekadar fitur pemasaran. AI adalah inti dari struktur biaya Ayoabroad! yang memungkinkan margin profit lebih tinggi dari kompetitor konvensional:
+
+| Fungsi AI | Mengganti | Penghematan |
+|-----------|-----------|-------------|
+| AI Chatbot Konsultasi 24/7 | 2-3 konselor junior (Rp 5-8 Jt/bulan/orang) | ~Rp 15-24 Jt/bulan |
+| AI Placement Test & Scoring | Manual placement test (waktu + SDM) | ~Rp 5 Jt/bulan |
+| AI University/Job Matching | Manual research oleh konselor | ~Rp 10 Jt/bulan |
+| AI Personalisasi Kurikulum | Kurikulum one-size-fits-all | Peningkatan retention rate |
+
+**Total estimasi penghematan operasional: Rp 30-40 Jt/bulan** dibanding lembaga konvensional dengan skala yang sama. Ini memungkinkan Ayoabroad menawarkan harga lebih kompetitif dengan margin yang tetap sehat.
 
 ---
 

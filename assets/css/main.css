@@ -178,7 +178,6 @@ a:hover {
   gap: var(--space-xs);
   list-style: none;
   flex-wrap: nowrap;
-  overflow-x: auto;
 }
 
 .nav-links a {
@@ -213,6 +212,64 @@ a:hover {
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 60%;
+}
+
+/* ── Nav Dropdown ── */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+  padding: var(--space-sm);
+  min-width: 180px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.nav-dropdown-menu li a {
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text-primary);
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-sm);
+}
+
+.nav-dropdown-menu li a::after {
+  display: none; /* No underline on dropdown items */
+}
+
+.nav-dropdown-menu li a:hover {
+  background: var(--color-bg-glass-hover);
+  color: var(--color-gold-500);
 }
 
 .nav-hamburger {
@@ -1371,6 +1428,109 @@ section {
   box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
 }
 
+/* ── Business Model Section ── */
+.biz-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.biz-card {
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.biz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.1);
+}
+
+.biz-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.biz-card-label {
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.biz-card h3 {
+  font-size: var(--text-h3);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
+}
+
+.biz-card-subtitle {
+  font-size: var(--text-small);
+  color: var(--color-gold-500);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+}
+
+.biz-card-body p {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.biz-card-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.biz-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.06);
+}
+
+.biz-item:last-child {
+  border-bottom: none;
+}
+
+.biz-item-name {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+.biz-item-price {
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-gold-300);
+  white-space: nowrap;
+  margin-left: var(--space-md);
+}
+
+.biz-card-tag {
+  margin-top: auto;
+  padding: var(--space-sm) var(--space-md);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.03));
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-label);
+  color: var(--color-gold-500);
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 /* ── Footer ── */
 #footer {
   border-top: 1px solid var(--glass-border);
@@ -1423,6 +1583,9 @@ section {
     grid-template-columns: 1fr;
   }
   .positioning-grid {
+    grid-template-columns: 1fr;
+  }
+  .biz-model-grid {
     grid-template-columns: 1fr;
   }
 }

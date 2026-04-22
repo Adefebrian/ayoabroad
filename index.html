@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ayoabroad! Competitive Analysis Study & Work Abroad Indonesia</title>
-  <meta name="description" content="Analisis kompetitif mendalam terhadap 31 lembaga Study & Work Abroad di Indonesia. Identifikasi celah pasar dan peluang strategis untuk lembaga all-in-one.">
+  <meta name="description"
+    content="Analisis kompetitif mendalam terhadap 31 lembaga Study & Work Abroad di Indonesia. Identifikasi celah pasar dan peluang strategis untuk lembaga all-in-one.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +23,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/charts.css">
 </head>
+
 <body>
 
   <!-- Scroll Progress -->
@@ -33,13 +36,22 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#overview">Overview</a></li>
-        <li><a href="#segment-gmat">GMAT</a></li>
-        <li><a href="#segment-ielts">IELTS</a></li>
-        <li><a href="#segment-kampung">Kampung Inggris</a></li>
-        <li><a href="#segment-study_abroad">Study Abroad</a></li>
-        <li><a href="#segment-work_abroad">Work Abroad</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-dropdown-toggle">Program <svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="#segment-gmat">GMAT</a></li>
+            <li><a href="#segment-ielts">IELTS</a></li>
+            <li><a href="#segment-kampung">Kampung Inggris</a></li>
+            <li><a href="#segment-study_abroad">Study Abroad</a></li>
+            <li><a href="#segment-work_abroad">Work Abroad</a></li>
+          </ul>
+        </li>
         <li><a href="#charts">Charts</a></li>
         <li><a href="#market-gap">Market Gap</a></li>
+        <li><a href="#business-model">Business Model</a></li>
       </ul>
       <div class="nav-hamburger" id="nav-hamburger">
         <span></span>
@@ -59,7 +71,8 @@
     <div class="hero-content">
       <p class="hero-tagline">Ayoabroad! (Prototype)</p>
       <h1 class="hero-title">Competitive Analysis<br>Study & Work Abroad</h1>
-      <p class="hero-subtitle">Analisis mendalam terhadap landscape industri persiapan studi dan kerja luar negeri di Indonesia. Identifikasi celah pasar dan peluang membangun lembaga all-in-one pertama.</p>
+      <p class="hero-subtitle">Analisis mendalam terhadap landscape industri persiapan studi dan kerja luar negeri di
+        Indonesia. Identifikasi celah pasar dan peluang membangun lembaga all-in-one pertama.</p>
 
       <div class="hero-stats">
         <div class="hero-stat">
@@ -82,7 +95,11 @@
 
       <button class="hero-cta" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">
         Mulai Analisis
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <polyline points="19 12 12 19 5 12" />
+        </svg>
       </button>
     </div>
   </section>
@@ -94,7 +111,11 @@
         <span class="section-label">Market Overview</span>
         <h2 class="section-title">Mengapa Sekarang?</h2>
         <div class="gold-line"></div>
-        <p class="section-subtitle">Lebih dari 7,2 juta WNI bekerja di luar negeri (BPS, 2024). Jumlah mahasiswa Indonesia berkuliah di luar negeri terus meningkat pasca pandemi. Namun, ekosistem lembaga yang ada masih terfragmentasi.</p>
+        <p class="section-subtitle">Lebih dari 7,2 juta WNI bekerja di luar negeri (BPS, 2024). Jumlah mahasiswa
+          Indonesia berkuliah di luar negeri terus meningkat pasca pandemi. Namun, ekosistem lembaga yang ada masih
+          terfragmentasi: calon mahasiswa harus membayar ke 3-4 lembaga terpisah (kursus bahasa, agen universitas,
+          penerjemah, agen visa) dengan total biaya Rp 20-40 Jt hanya untuk persiapan. Harga mayoritas tidak transparan,
+          dan tidak ada satupun yang menerapkan pendekatan AI-first.</p>
       </div>
 
       <div class="segment-cards" id="segment-cards">
@@ -104,19 +125,27 @@
       <!-- Journey Cost Chart -->
       <div class="glass-card chart-card full-width" style="margin-bottom: var(--space-2xl);">
         <h3>Estimasi Biaya Total Journey per Segmen (0-24 Bulan)</h3>
-        <p class="chart-desc">Akumulasi biaya yang harus dikeluarkan tiap segmen audiens untuk mencapai tujuan mereka.</p>
+        <p class="chart-desc">Akumulasi biaya yang harus dikeluarkan tiap segmen audiens untuk mencapai tujuan mereka.
+        </p>
         <div class="chart-container" style="height: 350px;">
           <canvas id="chart-journey"></canvas>
         </div>
-        <div class="chart-insight">Segmen C (Imigrasi Permanen) membutuhkan investasi terbesar hingga Rp 50 Jt, sementara Segmen B (Fresh Graduate WHV) relatif terjangkau di kisaran Rp 8-25 Jt.</div>
+        <div class="chart-insight">Segmen C (Imigrasi Permanen) membutuhkan investasi terbesar hingga Rp 50 Jt,
+          sementara Segmen B (Fresh Graduate WHV) relatif terjangkau di kisaran Rp 8-25 Jt.</div>
       </div>
 
       <div class="glass-card insight-box">
         <div class="insight-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+          </svg>
         </div>
         <h3>Temuan Utama: Peluang All-in-One</h3>
-        <p>Tidak ada satu pemain pun di pasar Indonesia yang menyentuh keempat segmen secara bersamaan dalam satu atap. Tidak ada pula yang menerapkan pendekatan AI-first. Ini adalah celah strategis terbesar yang kami temukan dari analisis 31 kompetitor di 5 kategori dan alasan Ayoabroad! ada.</p>
+        <p>Tidak ada satu pemain pun di pasar Indonesia yang menyentuh keempat segmen secara bersamaan dalam satu atap.
+          Tidak ada pula yang menerapkan pendekatan AI-first. Ini adalah celah strategis terbesar yang kami temukan dari
+          analisis 31 kompetitor di 5 kategori dan alasan Ayoabroad! ada.</p>
       </div>
     </div>
   </section>
@@ -141,11 +170,14 @@
         <!-- Chart 1: Price Distribution -->
         <div class="glass-card chart-card full-width">
           <h3>Distribusi Harga per Segmen</h3>
-          <p class="chart-desc">Perbandingan harga minimum dan maksimum di setiap kategori. Menunjukkan fragmentasi harga yang ekstrem.</p>
+          <p class="chart-desc">Perbandingan harga minimum dan maksimum di setiap kategori. Menunjukkan fragmentasi
+            harga yang ekstrem.</p>
           <div class="chart-container" style="height: 400px;">
             <canvas id="chart-price-dist"></canvas>
           </div>
-          <div class="chart-insight">Wall Street English memiliki tarif tertinggi (Rp 60 Juta), sementara The Benefit English Course menawarkan entry point terendah (Rp 400.000). Range ini mencerminkan fragmentasi pasar yang ekstrem.</div>
+          <div class="chart-insight">Wall Street English memiliki tarif tertinggi (Rp 60 Juta), sementara The Benefit
+            English Course menawarkan entry point terendah (Rp 400.000). Range ini mencerminkan fragmentasi pasar yang
+            ekstrem.</div>
         </div>
 
         <!-- Chart 2: Radar -->
@@ -165,13 +197,15 @@
           <div class="chart-container" style="height: 350px;">
             <canvas id="chart-donut"></canvas>
           </div>
-          <div class="chart-insight">Mayoritas (54,8%) sudah hybrid, tapi kualitas layanan online sangat bervariasi antar lembaga.</div>
+          <div class="chart-insight">Mayoritas (54,8%) sudah hybrid, tapi kualitas layanan online sangat bervariasi
+            antar lembaga.</div>
         </div>
 
         <!-- Chart 5: Guarantee -->
         <div class="glass-card chart-card full-width">
           <h3>Ketersediaan Garansi & Transparansi Harga</h3>
-          <p class="chart-desc">Seberapa banyak lembaga yang menawarkan garansi skor, harga transparan, dan opsi cicilan.</p>
+          <p class="chart-desc">Seberapa banyak lembaga yang menawarkan garansi skor, harga transparan, dan opsi
+            cicilan.</p>
           <div class="chart-container" style="height: 300px;">
             <canvas id="chart-guarantee"></canvas>
           </div>
@@ -184,17 +218,20 @@
           <div class="chart-container" style="height: 350px;">
             <canvas id="chart-range"></canvas>
           </div>
-          <div class="chart-insight">Segmen Study Abroad memiliki outlier paling ekstrem karena model gratis (agen) vs premium (Study Tour). Pasar sangat tidak merata harganya.</div>
+          <div class="chart-insight">Segmen Study Abroad memiliki outlier paling ekstrem karena model gratis (agen) vs
+            premium (Study Tour). Pasar sangat tidak merata harganya.</div>
         </div>
 
         <!-- Chart 7: Heatmap -->
         <div class="glass-card chart-card full-width">
           <h3>Heatmap: Kompetitor vs Fitur</h3>
-          <p class="chart-desc">Visual paling penting: pemetaan 31 kompetitor terhadap 12 fitur kunci. Semakin banyak kolom kosong, semakin besar celah pasar.</p>
+          <p class="chart-desc">Visual paling penting: pemetaan 31 kompetitor terhadap 12 fitur kunci. Semakin banyak
+            kolom kosong, semakin besar celah pasar.</p>
           <div class="heatmap-container">
             <div class="heatmap" id="heatmap-grid"></div>
           </div>
-          <div class="chart-insight">Tidak ada satu pun kompetitor yang memiliki checkmark di semua 12 fitur. Ini membuktikan celah pasar yang sangat lebar untuk pemain baru yang bisa menawarkan solusi menyeluruh.</div>
+          <div class="chart-insight">Tidak ada satu pun kompetitor yang memiliki checkmark di semua 12 fitur. Ini
+            membuktikan celah pasar yang sangat lebar untuk pemain baru yang bisa menawarkan solusi menyeluruh.</div>
         </div>
 
       </div>
@@ -208,7 +245,8 @@
         <span class="section-label">Market Gap Analysis</span>
         <h2 class="section-title">Seluruh Celah Pasar yang Belum Terisi</h2>
         <div class="gold-line"></div>
-        <p class="section-subtitle">Daftar lengkap peluang strategis berdasarkan analisis kelemahan seluruh 31 kompetitor di 5 segmen. Setiap celah adalah peluang positioning untuk lembaga all-in-one.</p>
+        <p class="section-subtitle">Daftar lengkap peluang strategis berdasarkan analisis kelemahan seluruh 31
+          kompetitor di 5 segmen. Setiap celah adalah peluang positioning untuk lembaga all-in-one.</p>
       </div>
 
       <!-- Market Gap Categories -->
@@ -239,20 +277,30 @@
       <!-- All-in-One Opportunity -->
       <div class="glass-card insight-box" style="margin-top: 80px;">
         <div class="insight-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
         </div>
         <h3>Peluang All-in-One + AI-First</h3>
-        <p>Dari 31 kompetitor yang dianalisis, <strong>0 (nol)</strong> yang menyentuh seluruh 4 segmen audiens sekaligus. Tidak ada pula yang mengintegrasikan teknologi AI secara mendalam ke dalam proses belajar, matching universitas/kerja, atau personalisasi kurikulum. Ayoabroad! dapat menjadi pemain pertama yang menggabungkan seluruh layanan (IELTS, GMAT, Study Abroad, Work Abroad, Corporate English) dalam satu platform berbasis AI.</p>
+        <p>Dari 31 kompetitor yang dianalisis, <strong>0 (nol)</strong> yang menyentuh seluruh 4 segmen audiens
+          sekaligus. Tidak ada pula yang mengintegrasikan teknologi AI secara mendalam ke dalam proses belajar, matching
+          universitas/kerja, atau personalisasi kurikulum. Ayoabroad! dapat menjadi pemain pertama yang menggabungkan
+          seluruh layanan (IELTS, GMAT, Study Abroad, Work Abroad, Corporate English) dalam satu platform berbasis AI.
+        </p>
       </div>
 
       <!-- Positioning Chart -->
-      <div class="glass-card chart-card full-width" style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl);">
+      <div class="glass-card chart-card full-width"
+        style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl);">
         <h3>Posisi Kompetitif: Harga vs Kelengkapan Layanan</h3>
-        <p class="chart-desc">Scatter plot menunjukkan posisi setiap kompetitor. Titik merah adalah target posisi Ayoabroad!: harga menengah, kelengkapan tertinggi, diperkuat teknologi AI.</p>
+        <p class="chart-desc">Scatter plot menunjukkan posisi setiap kompetitor. Titik merah adalah target posisi
+          Ayoabroad!: harga menengah, kelengkapan tertinggi, diperkuat teknologi AI.</p>
         <div class="chart-container" style="height: 500px;">
           <canvas id="chart-positioning"></canvas>
         </div>
-        <div class="chart-insight">Celah terbesar berada di kuadran tengah-atas: harga menengah dengan kelengkapan layanan tinggi. Tidak ada pemain saat ini yang menempati posisi ini. inilah target Ayoabroad!</div>
+        <div class="chart-insight">Celah terbesar berada di kuadran tengah-atas: harga menengah dengan kelengkapan
+          layanan tinggi. Tidak ada pemain saat ini yang menempati posisi ini. inilah target Ayoabroad!</div>
       </div>
 
       <!-- Comparison Table -->
@@ -275,11 +323,159 @@
     </div>
   </section>
 
+  <!-- ═══════════ BUSINESS MODEL ═══════════ -->
+  <section id="business-model">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Revenue Architecture</span>
+        <h2 class="section-title">Arsitektur Pendapatan Ayoabroad!</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Bagaimana Ayoabroad! akan mencetak pendapatan. Tiga pilar bisnis yang saling
+          memperkuat: penjualan langsung ke konsumen, kontrak korporasi, dan efisiensi biaya berbasis AI.</p>
+      </div>
+
+      <!-- 3-Pillar Cards -->
+      <div class="biz-model-grid">
+
+        <!-- Pillar 1: B2C -->
+        <div class="glass-card biz-card">
+          <div class="biz-card-icon" style="background: rgba(46, 204, 113, 0.12); color: #2ECC71;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <div class="biz-card-label">Pilar 1</div>
+          <h3>B2C Premium & Bundling</h3>
+          <p class="biz-card-subtitle">Revenue Utama</p>
+          <div class="biz-card-body">
+            <p>Paket bundling all-in-one yang menggabungkan kursus bahasa + konsultasi universitas/kerja + dokumen +
+              visa dalam satu harga. Lebih murah dari beli terpisah, dengan opsi cicilan/BNPL untuk Gen Z.</p>
+            <div class="biz-card-items">
+              <div class="biz-item">
+                <span class="biz-item-name">Bundel Study Abroad Complete</span>
+                <span class="biz-item-price">Rp 15-25 Jt</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">Bundel Work Abroad Ready</span>
+                <span class="biz-item-price">Rp 8-18 Jt</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">Bundel Immigration Path</span>
+                <span class="biz-item-price">Rp 20-35 Jt</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">Kursus Satuan (IELTS/GMAT)</span>
+                <span class="biz-item-price">Rp 3-8 Jt</span>
+              </div>
+            </div>
+            <div class="biz-card-tag">Freemium Funnel: Placement Test AI Gratis &rarr; Upgrade ke Paket Berbayar</div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: B2B -->
+        <div class="glass-card biz-card">
+          <div class="biz-card-icon" style="background: rgba(52, 152, 219, 0.12); color: #3498DB;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+          </div>
+          <div class="biz-card-label">Pilar 2</div>
+          <h3>B2B Corporate English</h3>
+          <p class="biz-card-subtitle">Revenue Berulang (Recurring)</p>
+          <div class="biz-card-body">
+            <p>Pelatihan bahasa Inggris korporat dengan kurikulum industri-spesifik. Bukan generic english class, tapi
+              program yang di-tailor per sektor industri klien. Dari 31 kompetitor, hanya 2-3 yang menyentuh B2B dan
+              tidak satupun yang menawarkan kurikulum per-industri.</p>
+            <div class="biz-card-items">
+              <div class="biz-item">
+                <span class="biz-item-name">Corporate English Program</span>
+                <span class="biz-item-price">Rp 5-15 Jt/org/thn</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">Industry-Specific English</span>
+                <span class="biz-item-price">Rp 3-8 Jt/org/6bln</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">Executive Communication</span>
+                <span class="biz-item-price">Rp 15-25 Jt/orang</span>
+              </div>
+            </div>
+            <div class="biz-card-tag">Model Kontrak Tahunan &rarr; Predictable Revenue Stream</div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: AI -->
+        <div class="glass-card biz-card">
+          <div class="biz-card-icon" style="background: rgba(212, 175, 55, 0.12); color: #D4AF37;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" />
+              <circle cx="12" cy="14" r="2" />
+              <path d="M12 16v2" />
+            </svg>
+          </div>
+          <div class="biz-card-label">Pilar 3</div>
+          <h3>AI-First Cost Efficiency</h3>
+          <p class="biz-card-subtitle">Margin Booster</p>
+          <div class="biz-card-body">
+            <p>AI bukan sekadar fitur pemasaran. AI adalah inti struktur biaya yang memungkinkan margin profit lebih
+              tinggi dari kompetitor konvensional, sambil menekan harga jual ke konsumen.</p>
+            <div class="biz-card-items">
+              <div class="biz-item">
+                <span class="biz-item-name">AI Chatbot Konsultasi 24/7</span>
+                <span class="biz-item-price">Hemat ~Rp 20 Jt/bln</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">AI University/Job Matching</span>
+                <span class="biz-item-price">Hemat ~Rp 10 Jt/bln</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">AI Personalisasi Kurikulum</span>
+                <span class="biz-item-price">&uarr; Retention Rate</span>
+              </div>
+              <div class="biz-item">
+                <span class="biz-item-name">AI Placement Test & Scoring</span>
+                <span class="biz-item-price">Hemat ~Rp 5 Jt/bln</span>
+              </div>
+            </div>
+            <div class="biz-card-tag">Total Penghematan Operasional: ~Rp 30-40 Jt/bulan vs Lembaga Konvensional</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary Insight -->
+      <div class="glass-card insight-box" style="margin-top: var(--space-3xl);">
+        <div class="insight-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </div>
+        <h3>Mengapa Model Ini Layak?</h3>
+        <p>Dengan menggabungkan 3 pilar pendapatan ini, Ayoabroad! tidak bergantung pada satu sumber revenue saja. Pilar
+          B2C memberikan volume, Pilar B2B memberikan stabilitas (recurring revenue), dan Pilar AI memastikan margin
+          tetap sehat meskipun harga jual ditekan untuk bersaing. Dari analisis 31 kompetitor, <strong>tidak ada
+            satupun</strong> yang menjalankan ketiga pilar ini secara bersamaan.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer id="footer">
     <div class="container">
       <div class="footer-brand" style="text-align: center; width: 100%;">Ayoabroad!</div>
-      <p class="footer-text" style="text-align: center; margin-left: auto; margin-right: auto;">Dokumen analisis kompetitif untuk tim internal Ayoabroad!. Semua data bersumber dari riset pasar aktual tanpa interpolasi, fabrikasi, atau halusinasi.</p>
+      <p class="footer-text" style="text-align: center; margin-left: auto; margin-right: auto;">Dokumen analisis
+        kompetitif untuk tim internal Ayoabroad!. Semua data bersumber dari riset pasar aktual tanpa interpolasi,
+        fabrikasi, atau halusinasi.</p>
       <div class="footer-meta">
         Data terakhir diperbarui: April 2026 &middot; 31 Kompetitor &middot; 5 Segmen &middot; Factual Data Only
       </div>
@@ -292,7 +488,11 @@
       <div class="modal-header">
         <h2 id="modal-title">Detail Kompetitor</h2>
         <button class="modal-close">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <div class="modal-body" id="modal-body-content">
@@ -310,4 +510,5 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
