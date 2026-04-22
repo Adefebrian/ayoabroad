@@ -43,7 +43,7 @@
   --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
 
   /* Typography Scale */
-  --text-hero:    clamp(3rem, 6.5vw, 6rem);
+  --text-hero:    clamp(2.8rem, 5.5vw, 5rem);
   --text-h1:      clamp(2rem, 5vw, 4rem);
   --text-h2:      clamp(1.5rem, 3vw, 2.5rem);
   --text-h3:      clamp(1.2rem, 2vw, 1.75rem);
@@ -1685,7 +1685,7 @@ section {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(2rem, 9vw, 2.8rem);
+    font-size: clamp(1.9rem, 8.5vw, 2.6rem);
   }
 
   .hero-stat-number {
