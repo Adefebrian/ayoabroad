@@ -702,6 +702,7 @@ function initAllCharts(data) {
   renderHeatmap(data);
   renderRangeChart(data);
   renderFinancialProjectionChart();
+  renderRevenueBreakdownChart();
 }
 
 /**
@@ -729,28 +730,28 @@ function renderFinancialProjectionChart() {
       labels: years,
       datasets: [
         {
-          label: 'Gross Revenue (Miliar Rp)',
+          label: 'Gross Revenue',
           data: grossRevenue,
           borderColor: '#D4AF37', // Gold
           backgroundColor: 'rgba(212, 175, 55, 0.1)',
           borderWidth: 3,
           pointBackgroundColor: '#0D0D0D',
           pointBorderColor: '#D4AF37',
-          pointRadius: 5,
-          pointHoverRadius: 8,
+          pointRadius: 4,
+          pointHoverRadius: 6,
           fill: true,
-          tension: 0.4 // Smooth curves
+          tension: 0.4
         },
         {
-          label: 'Net Profit (Miliar Rp)',
+          label: 'Net Profit',
           data: netProfit,
           borderColor: '#2ECC71', // Green success
           backgroundColor: 'rgba(46, 204, 113, 0.1)',
           borderWidth: 3,
           pointBackgroundColor: '#0D0D0D',
           pointBorderColor: '#2ECC71',
-          pointRadius: 5,
-          pointHoverRadius: 8,
+          pointRadius: 4,
+          pointHoverRadius: 6,
           fill: true,
           tension: 0.4
         }
@@ -768,40 +769,88 @@ function renderFinancialProjectionChart() {
           callbacks: {
             label: function(context) {
               let label = context.dataset.label || '';
-              if (label) {
-                label += ': ';
-              }
-              if (context.parsed.y !== null) {
-                label += 'Rp ' + context.parsed.y.toFixed(2) + ' Miliar';
-              }
-              // If it's Net Profit, show the margin % too
-              if (context.datasetIndex === 1) {
-                label += ` (${netMargin[context.dataIndex]}% Margin)`;
-              }
+              if (label) label += ': ';
+              if (context.parsed.y !== null) label += 'Rp ' + context.parsed.y.toFixed(2) + ' M';
+              if (context.datasetIndex === 1) label += ` (${netMargin[context.dataIndex]}%)`;
               return label;
             }
           }
         },
-        legend: {
-          position: 'top',
+        legend: { position: 'top' }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(212, 175, 55, 0.05)' } },
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(212, 175, 55, 0.1)' },
+          ticks: { callback: (value) => 'Rp ' + value + ' M' }
         }
+      }
+    }
+  });
+}
+
+/**
+ * CHART 10: Revenue Breakdown Stream 1 vs Stream 2
+ */
+function renderRevenueBreakdownChart() {
+  const ctx = document.getElementById('revenueBreakdownChart');
+  if (!ctx) return;
+
+  if (chartInstances['revenue-breakdown']) {
+    chartInstances['revenue-breakdown'].destroy();
+  }
+
+  const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
+  const stream1 = [1.61, 2.63, 3.00, 3.72, 4.13, 4.24, 4.34, 4.45, 6.08, 6.23, 5.86, 6.00, 6.15, 7.89, 8.08];
+  const stream2 = [1.62, 1.66, 2.74, 3.49, 4.67, 4.79, 5.64, 5.78, 5.92, 6.07, 5.70, 5.85, 5.99, 6.14, 6.29];
+
+  chartInstances['revenue-breakdown'] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Stream 1 (Academy)',
+          data: stream1,
+          backgroundColor: '#D4AF37', // Gold
+          borderRadius: 4
+        },
+        {
+          label: 'Stream 2 (Admission)',
+          data: stream2,
+          backgroundColor: '#3498DB', // Blue
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return context.dataset.label + ': Rp ' + context.parsed.y.toFixed(2) + ' Miliar';
+            }
+          }
+        },
+        legend: { position: 'top' }
       },
       scales: {
         x: {
-          grid: {
-            color: 'rgba(212, 175, 55, 0.05)',
-          }
+          stacked: true,
+          grid: { display: false }
         },
         y: {
+          stacked: true,
           beginAtZero: true,
-          grid: {
-            color: 'rgba(212, 175, 55, 0.1)',
-          },
-          ticks: {
-            callback: function(value) {
-              return 'Rp ' + value + ' M';
-            }
-          }
+          grid: { color: 'rgba(212, 175, 55, 0.1)' },
+          ticks: { callback: (value) => 'Rp ' + value + ' M' }
         }
       }
     }

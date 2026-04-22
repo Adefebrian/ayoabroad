@@ -437,15 +437,31 @@
 
       <div style="height: 60px;"></div>
 
-      <!-- Financial Projection Chart -->
-      <div class="glass-card" style="padding: var(--space-2xl); margin-bottom: var(--space-3xl);">
-        <div class="chart-header" style="margin-bottom: var(--space-xl); text-align: center;">
-          <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 8px;">Proyeksi Finansial 15-Tahun (Berdasarkan Model)</h3>
-          <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Pendapatan Kotor vs Laba Bersih (dalam Miliar Rupiah). Target Net Margin stabil di ~35-41% mulai Tahun ke-5.</p>
+      <!-- Financial Projection Charts -->
+      <div class="charts-grid" style="margin-bottom: var(--space-3xl);">
+        
+        <!-- Chart A: Line Chart -->
+        <div class="glass-card chart-card">
+          <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
+            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Gross Revenue vs Net Profit</h3>
+            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Proyeksi 15 Tahun (dalam Miliar Rupiah)</p>
+          </div>
+          <div class="chart-wrapper" style="height: 350px; width: 100%;">
+            <canvas id="financialProjectionChart"></canvas>
+          </div>
         </div>
-        <div class="chart-wrapper" style="height: 400px; width: 100%;">
-          <canvas id="financialProjectionChart"></canvas>
+
+        <!-- Chart B: Stacked Bar Chart -->
+        <div class="glass-card chart-card">
+          <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
+            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Komposisi Revenue (Stream 1 vs Stream 2)</h3>
+            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Distribusi Pendapatan per Pilar (Miliar Rupiah)</p>
+          </div>
+          <div class="chart-wrapper" style="height: 350px; width: 100%;">
+            <canvas id="revenueBreakdownChart"></canvas>
+          </div>
         </div>
+
       </div>
 
       <!-- Summary Insight -->
