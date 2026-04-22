@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayoabroad! — Competitive Analysis Study & Work Abroad Indonesia</title>
+  <meta name="description" content="Analisis kompetitif mendalam terhadap 31 lembaga Study & Work Abroad di Indonesia. Identifikasi celah pasar dan peluang strategis untuk lembaga all-in-one.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/charts.css">
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="nav-inner">
+      <div class="nav-logo">Ayoabroad!</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#segment-gmat">GMAT</a></li>
+        <li><a href="#segment-ielts">IELTS</a></li>
+        <li><a href="#segment-kampung">Kampung Inggris</a></li>
+        <li><a href="#segment-study_abroad">Study Abroad</a></li>
+        <li><a href="#segment-work_abroad">Work Abroad</a></li>
+        <li><a href="#charts">Charts</a></li>
+        <li><a href="#market-gap">Market Gap</a></li>
+      </ul>
+      <div class="nav-hamburger" id="nav-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO SECTION ═══════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb"></div>
+    <div class="hero-orb-2"></div>
+    <div class="hero-particles"></div>
+
+    <div class="hero-content">
+      <p class="hero-tagline">Ayoabroad! (Prototype)</p>
+      <h1 class="hero-title">Competitive Analysis<br>Study & Work Abroad</h1>
+      <p class="hero-subtitle">Analisis mendalam terhadap landscape industri persiapan studi dan kerja luar negeri di Indonesia. Identifikasi celah pasar dan peluang membangun lembaga all-in-one pertama.</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="31">0</div>
+          <div class="hero-stat-label">Kompetitor</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="5">0</div>
+          <div class="hero-stat-label">Kategori</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="400" data-suffix=" rb">0</div>
+          <div class="hero-stat-label">Harga Terendah</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="90" data-suffix=" Jt">0</div>
+          <div class="hero-stat-label">Harga Tertinggi</div>
+        </div>
+      </div>
+
+      <button class="hero-cta" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">
+        Mulai Analisis
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════ EXECUTIVE SUMMARY ═══════════ -->
+  <section id="overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Market Overview</span>
+        <h2 class="section-title">Mengapa Sekarang?</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Lebih dari 7,2 juta WNI bekerja di luar negeri (BPS, 2024). Jumlah mahasiswa Indonesia berkuliah di luar negeri terus meningkat pasca pandemi. Namun, ekosistem lembaga yang ada masih terfragmentasi.</p>
+      </div>
+
+      <div class="segment-cards" id="segment-cards">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Journey Cost Chart -->
+      <div class="glass-card chart-card full-width" style="margin-bottom: var(--space-2xl);">
+        <h3>Estimasi Biaya Total Journey per Segmen (0-24 Bulan)</h3>
+        <p class="chart-desc">Akumulasi biaya yang harus dikeluarkan tiap segmen audiens untuk mencapai tujuan mereka.</p>
+        <div class="chart-container" style="height: 350px;">
+          <canvas id="chart-journey"></canvas>
+        </div>
+        <div class="chart-insight">Segmen C (Imigrasi Permanen) membutuhkan investasi terbesar hingga Rp 50 Jt, sementara Segmen B (Fresh Graduate WHV) relatif terjangkau di kisaran Rp 8-25 Jt.</div>
+      </div>
+
+      <div class="glass-card insight-box">
+        <div class="insight-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+        </div>
+        <h3>Temuan Utama: Peluang All-in-One</h3>
+        <p>Tidak ada satu pemain pun di pasar Indonesia yang menyentuh keempat segmen secara bersamaan dalam satu atap. Tidak ada pula yang menerapkan pendekatan AI-first. Ini adalah celah strategis terbesar yang kami temukan dari analisis 31 kompetitor di 5 kategori — dan alasan Ayoabroad! ada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ COMPETITOR SEGMENT SECTIONS ═══════════ -->
+  <div id="segments-container">
+    <!-- Rendered dynamically by JS for each of the 5 segments -->
+  </div>
+
+  <!-- ═══════════ CHARTS DASHBOARD ═══════════ -->
+  <section id="charts">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Data Visualisasi</span>
+        <h2 class="section-title">Dashboard Analisis</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Visualisasi data komprehensif dari seluruh 31 kompetitor di 5 segmen pasar.</p>
+      </div>
+
+      <div class="charts-grid">
+
+        <!-- Chart 1: Price Distribution -->
+        <div class="glass-card chart-card full-width">
+          <h3>Distribusi Harga per Segmen</h3>
+          <p class="chart-desc">Perbandingan harga minimum dan maksimum di setiap kategori. Menunjukkan fragmentasi harga yang ekstrem.</p>
+          <div class="chart-container" style="height: 400px;">
+            <canvas id="chart-price-dist"></canvas>
+          </div>
+          <div class="chart-insight">Wall Street English memiliki tarif tertinggi (Rp 60 Juta), sementara The Benefit English Course menawarkan entry point terendah (Rp 400.000). Range ini mencerminkan fragmentasi pasar yang ekstrem.</div>
+        </div>
+
+        <!-- Chart 2: Radar -->
+        <div class="glass-card chart-card">
+          <h3>Profil Kemampuan Kompetitor</h3>
+          <p class="chart-desc">Perbandingan 6 dimensi: Harga, Program, Online, Luring, Garansi, Transparansi.</p>
+          <div id="radar-toggles" class="radar-toggles"></div>
+          <div class="chart-container" style="height: 400px;">
+            <canvas id="chart-radar"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 4: Donut -->
+        <div class="glass-card chart-card donut-chart">
+          <h3>Distribusi Lokasi</h3>
+          <p class="chart-desc">Proporsi lembaga berdasarkan ketersediaan layanan online, luring, atau keduanya.</p>
+          <div class="chart-container" style="height: 350px;">
+            <canvas id="chart-donut"></canvas>
+          </div>
+          <div class="chart-insight">Mayoritas (54,8%) sudah hybrid, tapi kualitas layanan online sangat bervariasi antar lembaga.</div>
+        </div>
+
+        <!-- Chart 5: Guarantee -->
+        <div class="glass-card chart-card full-width">
+          <h3>Ketersediaan Garansi & Transparansi Harga</h3>
+          <p class="chart-desc">Seberapa banyak lembaga yang menawarkan garansi skor, harga transparan, dan opsi cicilan.</p>
+          <div class="chart-container" style="height: 300px;">
+            <canvas id="chart-guarantee"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 8: Range Distribution -->
+        <div class="glass-card chart-card full-width">
+          <h3>Distribusi Range Harga per Kategori</h3>
+          <p class="chart-desc">Box plot menunjukkan range (min-max), IQR (Q1-Q3), dan median harga tiap segmen.</p>
+          <div class="chart-container" style="height: 350px;">
+            <canvas id="chart-range"></canvas>
+          </div>
+          <div class="chart-insight">Segmen Study Abroad memiliki outlier paling ekstrem karena model gratis (agen) vs premium (Study Tour). Pasar sangat tidak merata harganya.</div>
+        </div>
+
+        <!-- Chart 7: Heatmap -->
+        <div class="glass-card chart-card full-width">
+          <h3>Heatmap: Kompetitor vs Fitur</h3>
+          <p class="chart-desc">Visual paling penting: pemetaan 31 kompetitor terhadap 12 fitur kunci. Semakin banyak kolom kosong, semakin besar celah pasar.</p>
+          <div class="heatmap-container">
+            <div class="heatmap" id="heatmap-grid"></div>
+          </div>
+          <div class="chart-insight">Tidak ada satu pun kompetitor yang memiliki checkmark di semua 12 fitur. Ini membuktikan celah pasar yang sangat lebar untuk pemain baru yang bisa menawarkan solusi menyeluruh.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MARKET GAP ANALYSIS ═══════════ -->
+  <section id="market-gap">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Market Gap Analysis</span>
+        <h2 class="section-title">Seluruh Celah Pasar yang Belum Terisi</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Daftar lengkap peluang strategis berdasarkan analisis kelemahan seluruh 31 kompetitor di 5 segmen. Setiap celah adalah peluang positioning untuk lembaga all-in-one.</p>
+      </div>
+
+      <!-- Market Gap Categories -->
+      <div class="gap-categories" id="gap-categories">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Summary Table -->
+      <div class="table-wrapper" style="margin-top: var(--space-2xl); margin-bottom: 80px;">
+        <table class="whitespace-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Celah Pasar</th>
+              <th>Kategori</th>
+              <th>Siapa yang Gagal Mengisi</th>
+              <th>Nilai Pasar</th>
+            </tr>
+          </thead>
+          <tbody id="whitespace-table-body">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- All-in-One Opportunity -->
+      <div class="glass-card insight-box" style="margin-top: 80px;">
+        <div class="insight-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Peluang All-in-One + AI-First</h3>
+        <p>Dari 31 kompetitor yang dianalisis, <strong>0 (nol)</strong> yang menyentuh seluruh 4 segmen audiens sekaligus. Tidak ada pula yang mengintegrasikan teknologi AI secara mendalam ke dalam proses belajar, matching universitas/kerja, atau personalisasi kurikulum. Ayoabroad! dapat menjadi pemain pertama yang menggabungkan seluruh layanan (IELTS, GMAT, Study Abroad, Work Abroad, Corporate English) dalam satu platform berbasis AI.</p>
+      </div>
+
+      <!-- Positioning Chart -->
+      <div class="glass-card chart-card full-width" style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl);">
+        <h3>Posisi Kompetitif: Harga vs Kelengkapan Layanan</h3>
+        <p class="chart-desc">Scatter plot menunjukkan posisi setiap kompetitor. Titik merah adalah target posisi Ayoabroad!: harga menengah, kelengkapan tertinggi, diperkuat teknologi AI.</p>
+        <div class="chart-container" style="height: 500px;">
+          <canvas id="chart-positioning"></canvas>
+        </div>
+        <div class="chart-insight">Celah terbesar berada di kuadran tengah-atas: harga menengah dengan kelengkapan layanan tinggi. Tidak ada pemain saat ini yang menempati posisi ini — inilah target Ayoabroad!</div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="glass-card" style="padding: var(--space-2xl);">
+        <h3 style="font-size: var(--text-h3); margin-bottom: var(--space-lg);">Perbandingan Fitur Head-to-Head</h3>
+        <p class="chart-desc">Bagaimana posisi Ayoabroad! dibandingkan kompetitor representatif dari tiap segmen.</p>
+        <div class="table-wrapper" style="border: none; box-shadow: none; backdrop-filter: none;">
+          <table class="comp-table">
+            <thead>
+              <tr id="comparison-header">
+                <!-- Rendered by JS -->
+              </tr>
+            </thead>
+            <tbody id="comparison-table-body">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-brand" style="text-align: center; width: 100%;">Ayoabroad! <span style="font-size: 0.5em; opacity: 0.5;">(Prototype)</span></div>
+      <p class="footer-text" style="text-align: center; margin-left: auto; margin-right: auto;">Dokumen analisis kompetitif untuk tim internal Ayoabroad!. Semua data bersumber dari riset pasar aktual — tanpa interpolasi, fabrikasi, atau halusinasi.</p>
+      <div class="footer-meta">
+        Data terakhir diperbarui: Juli 2025 &middot; 31 Kompetitor &middot; 5 Segmen &middot; Factual Data Only
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ MODAL ═══════════ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Detail Kompetitor</h2>
+        <button class="modal-close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts (order matters: utils first, then data, then features) -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

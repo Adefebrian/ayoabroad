@@ -1,0 +1,49 @@
+/* ============================================
+   CHART.JS STYLE OVERRIDES
+   ============================================ */
+
+/* Chart card specific tweaks */
+.chart-card canvas {
+  max-height: 450px;
+}
+
+.chart-card.donut-chart canvas {
+  max-height: 350px;
+  max-width: 350px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Custom chart legend */
+.custom-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: var(--space-md) 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Chart tooltip overrides */
+.chartjs-tooltip {
+  background: var(--color-bg-secondary) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 8px 12px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
