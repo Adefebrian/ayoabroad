@@ -930,7 +930,7 @@ function renderMarginTrendChart() {
 }
 
 /**
- * CHART 12: Cohort Growth
+ * CHART 12: OPEX per Student (Efficiency)
  */
 function renderCohortGrowthChart() {
   const ctx = document.getElementById('cohortGrowthChart');
@@ -939,16 +939,19 @@ function renderCohortGrowthChart() {
   if (chartInstances['cohort-growth']) chartInstances['cohort-growth'].destroy();
 
   const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
-  const cohorts = [8, 11, 14, 17, 20, 20, 21, 21, 25, 25, 25, 25, 25, 29, 29];
+  // Calculated OPEX per Student in Juta Rupiah
+  const opexPerStudent = [15.68, 12.26, 9.60, 8.24, 7.08, 8.39, 8.18, 9.21, 8.19, 8.48, 8.05, 8.33, 8.63, 7.84, 8.12];
 
   chartInstances['cohort-growth'] = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: years,
       datasets: [{
-        label: 'Total Kelas (Cohort) Aktif',
-        data: cohorts,
-        backgroundColor: 'rgba(243, 156, 18, 0.8)', // Orange/Gold
+        label: 'OPEX per Siswa (Juta Rp)',
+        data: opexPerStudent,
+        backgroundColor: 'rgba(52, 152, 219, 0.8)', // Blue
+        borderColor: '#3498DB',
+        borderWidth: 1,
         borderRadius: 4,
       }]
     },
@@ -956,13 +959,19 @@ function renderCohortGrowthChart() {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: { position: 'top' }
+        legend: { position: 'top' },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `Biaya Operasional: Rp ${ctx.parsed.y.toFixed(2)} Jt / siswa`
+          }
+        }
       },
       scales: {
         x: { grid: { display: false } },
         y: {
           beginAtZero: true,
-          grid: { color: 'rgba(212, 175, 55, 0.1)' }
+          grid: { color: 'rgba(212, 175, 55, 0.1)' },
+          ticks: { callback: (value) => 'Rp ' + value + ' Jt' }
         }
       }
     }
@@ -970,7 +979,7 @@ function renderCohortGrowthChart() {
 }
 
 /**
- * CHART 13: Cash Flow Decomposition
+ * CHART 13: Cash Flow Decomposition (100% Stacked Bar)
  */
 function renderCashflowDecompositionChart() {
   const ctx = document.getElementById('cashflowDecompositionChart');
@@ -979,10 +988,19 @@ function renderCashflowDecompositionChart() {
   if (chartInstances['cashflow-decomp']) chartInstances['cashflow-decomp'].destroy();
 
   const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
-  const cogs = [0.79, 1.13, 1.52, 1.92, 2.38, 2.49, 2.74, 2.86, 3.56, 3.72, 3.61, 3.78, 3.96, 4.80, 5.02];
-  const opex = [1.58, 1.63, 1.68, 1.73, 1.78, 2.11, 2.19, 2.46, 2.55, 2.64, 2.50, 2.59, 2.69, 2.78, 2.88];
-  const taxOthers = [0.20, 0.34, 0.56, 0.79, 1.02, 0.98, 1.11, 1.09, 1.29, 1.31, 1.21, 1.21, 1.21, 1.43, 1.44];
-  const netProfit = [0.66, 1.19, 1.98, 2.77, 3.62, 3.44, 3.94, 3.82, 4.60, 4.63, 4.24, 4.27, 4.29, 5.02, 5.04];
+  
+  // Raw Data in Billions
+  const gross = [3.22, 4.29, 5.74, 7.21, 8.80, 9.02, 9.97, 10.22, 12.00, 12.30, 11.56, 11.84, 12.14, 14.02, 14.37];
+  const cogsRaw = [0.79, 1.13, 1.52, 1.92, 2.38, 2.49, 2.74, 2.86, 3.56, 3.72, 3.61, 3.78, 3.96, 4.80, 5.02];
+  const opexRaw = [1.58, 1.63, 1.68, 1.73, 1.78, 2.11, 2.19, 2.46, 2.55, 2.64, 2.50, 2.59, 2.69, 2.78, 2.88];
+  const netRaw = [0.65, 1.18, 1.98, 2.76, 3.61, 3.44, 3.94, 3.82, 4.59, 4.63, 4.24, 4.26, 4.28, 5.02, 5.04];
+  
+  // Calculate Percentages (100%)
+  const cogsPct = cogsRaw.map((val, i) => (val / gross[i]) * 100);
+  const opexPct = opexRaw.map((val, i) => (val / gross[i]) * 100);
+  const netPct = netRaw.map((val, i) => (val / gross[i]) * 100);
+  // Tax is the remainder
+  const taxPct = netPct.map((val, i) => 100 - cogsPct[i] - opexPct[i] - val);
 
   chartInstances['cashflow-decomp'] = new Chart(ctx, {
     type: 'bar',
@@ -990,28 +1008,24 @@ function renderCashflowDecompositionChart() {
       labels: years,
       datasets: [
         {
-          label: 'Net Profit (Laba Bersih)',
-          data: netProfit,
+          label: 'Net Profit',
+          data: netPct,
           backgroundColor: '#2ECC71', // Green
-          borderRadius: { topLeft: 4, topRight: 4, bottomLeft: 0, bottomRight: 0 }
         },
         {
-          label: 'Tax & Depr (Pajak & Lainnya)',
-          data: taxOthers,
+          label: 'Tax & Others',
+          data: taxPct,
           backgroundColor: '#E74C3C', // Redish
-          borderRadius: 0
         },
         {
-          label: 'OPEX (Beban Operasional)',
-          data: opex,
+          label: 'OPEX',
+          data: opexPct,
           backgroundColor: '#3498DB', // Blue
-          borderRadius: 0
         },
         {
-          label: 'COGS (Biaya Pokok)',
-          data: cogs,
+          label: 'COGS',
+          data: cogsPct,
           backgroundColor: '#F39C12', // Orange/Yellow
-          borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 4, bottomRight: 4 }
         }
       ]
     },
@@ -1025,7 +1039,7 @@ function renderCashflowDecompositionChart() {
       plugins: {
         tooltip: {
           callbacks: {
-            label: (ctx) => `${ctx.dataset.label}: Rp ${ctx.parsed.y.toFixed(2)} Miliar`
+            label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`
           }
         },
         legend: {
@@ -1040,9 +1054,9 @@ function renderCashflowDecompositionChart() {
         },
         y: {
           stacked: true,
-          beginAtZero: true,
+          max: 100, // Force exactly 100%
           grid: { color: 'rgba(212, 175, 55, 0.1)' },
-          ticks: { callback: (value) => 'Rp ' + value + ' M' }
+          ticks: { callback: (value) => value + '%' }
         }
       }
     }
