@@ -43,7 +43,7 @@
   --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
 
   /* Typography Scale */
-  --text-hero:    clamp(3rem, 8vw, 7rem);
+  --text-hero:    clamp(2.5rem, 5vw, 4.5rem);
   --text-h1:      clamp(2rem, 5vw, 4rem);
   --text-h2:      clamp(1.5rem, 3vw, 2.5rem);
   --text-h3:      clamp(1.2rem, 2vw, 1.75rem);
@@ -483,7 +483,7 @@ section {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 0 var(--space-xl);
 }
 
@@ -1685,7 +1685,7 @@ section {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
 
   .hero-stat-number {
