@@ -465,19 +465,19 @@
         <!-- Chart C: Margin Trends -->
         <div class="glass-card chart-card">
           <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
-            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Evolusi Margin Laba (%)</h3>
-            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Menunjukkan bagaimana Net Margin meroket dari 20% ke 41% di 5 tahun pertama.</p>
+            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Tren Profitabilitas (Margin)</h3>
+            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Perkembangan Persentase Laba (Gross, Operating, Net)</p>
           </div>
           <div class="chart-wrapper" style="height: 350px; width: 100%;">
             <canvas id="marginTrendChart"></canvas>
           </div>
         </div>
 
-        <!-- Chart D: OPEX Efficiency -->
+        <!-- Chart D: Students vs Tutors -->
         <div class="glass-card chart-card">
           <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
-            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Efisiensi OPEX per Siswa</h3>
-            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Biaya operasional (Juta Rp) per siswa turun tajam (Scale Effect).</p>
+            <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Skala Operasional (Efisiensi)</h3>
+            <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Rasio Pertumbuhan Total Siswa vs Total Tutor</p>
           </div>
           <div class="chart-wrapper" style="height: 350px; width: 100%;">
             <canvas id="cohortGrowthChart"></canvas>
@@ -486,11 +486,11 @@
 
       </div>
 
-      <!-- Chart E: Full width 100% Stacked Bar -->
+      <!-- Chart E: Full width P&L -->
       <div class="glass-card chart-card full-width" style="margin-bottom: var(--space-3xl); padding: var(--space-2xl);">
         <div class="chart-header" style="margin-bottom: var(--space-md); text-align: center;">
-          <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Struktur Pendapatan 100% (Revenue Decomposition)</h3>
-          <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Visualisasi 100% Stacked Bar menunjukkan proporsi OPEX (Biru) yang menyusut tajam dari 49% menjadi 20%, memberi ruang masif bagi Laba Bersih (Hijau).</p>
+          <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 4px;">Dekomposisi Income Statement (Scale Effect)</h3>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Memvisualisasikan bagaimana pertumbuhan Revenue (tinggi balok) jauh mengungguli pertumbuhan beban tetap (OPEX).</p>
         </div>
         <div class="chart-wrapper" style="height: 400px; width: 100%;">
           <canvas id="cashflowDecompositionChart"></canvas>

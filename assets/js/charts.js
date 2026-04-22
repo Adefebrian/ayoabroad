@@ -883,35 +883,41 @@ function renderMarginTrendChart() {
           label: 'Gross Margin (%)',
           data: gross,
           borderColor: '#D4AF37', // Gold
-          backgroundColor: '#D4AF37',
+          backgroundColor: 'rgba(212, 175, 55, 0.1)',
           borderWidth: 2,
-          borderDash: [5, 5],
-          pointRadius: 3,
-          tension: 0.3
+          pointRadius: 0,
+          fill: true,
+          tension: 0.4
         },
         {
           label: 'Operating Margin (%)',
           data: operating,
           borderColor: '#3498DB', // Blue
-          backgroundColor: '#3498DB',
+          backgroundColor: 'rgba(52, 152, 219, 0.15)',
           borderWidth: 2,
-          pointRadius: 3,
-          tension: 0.3
+          pointRadius: 0,
+          fill: true,
+          tension: 0.4
         },
         {
           label: 'Net Margin (%)',
           data: net,
           borderColor: '#2ECC71', // Green
-          backgroundColor: '#2ECC71',
+          backgroundColor: 'rgba(46, 204, 113, 0.25)',
           borderWidth: 3,
-          pointRadius: 4,
-          tension: 0.3
+          pointRadius: 3,
+          fill: true,
+          tension: 0.4
         }
       ]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
       plugins: {
         tooltip: {
           callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y}%` }
@@ -921,6 +927,7 @@ function renderMarginTrendChart() {
       scales: {
         x: { grid: { color: 'rgba(212, 175, 55, 0.05)' } },
         y: {
+          beginAtZero: true,
           grid: { color: 'rgba(212, 175, 55, 0.1)' },
           ticks: { callback: (value) => value + '%' }
         }
@@ -930,7 +937,7 @@ function renderMarginTrendChart() {
 }
 
 /**
- * CHART 12: OPEX per Student (Efficiency)
+ * CHART 12: Students vs Tutors (Efficiency & Scale)
  */
 function renderCohortGrowthChart() {
   const ctx = document.getElementById('cohortGrowthChart');
@@ -939,39 +946,60 @@ function renderCohortGrowthChart() {
   if (chartInstances['cohort-growth']) chartInstances['cohort-growth'].destroy();
 
   const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
-  // Calculated OPEX per Student in Juta Rupiah
-  const opexPerStudent = [15.68, 12.26, 9.60, 8.24, 7.08, 8.39, 8.18, 9.21, 8.19, 8.48, 8.05, 8.33, 8.63, 7.84, 8.12];
+  const students = [101, 133, 175, 210, 252, 252, 267, 267, 311, 311, 311, 311, 311, 355, 355];
+  const tutors = [8, 11, 14, 17, 20, 20, 21, 21, 25, 25, 25, 25, 25, 29, 29];
 
   chartInstances['cohort-growth'] = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: years,
-      datasets: [{
-        label: 'OPEX per Siswa (Juta Rp)',
-        data: opexPerStudent,
-        backgroundColor: 'rgba(52, 152, 219, 0.8)', // Blue
-        borderColor: '#3498DB',
-        borderWidth: 1,
-        borderRadius: 4,
-      }]
+      datasets: [
+        {
+          type: 'line',
+          label: 'Total Tutor / Cohort',
+          data: tutors,
+          borderColor: '#E74C3C', // Red
+          backgroundColor: '#E74C3C',
+          borderWidth: 3,
+          pointRadius: 4,
+          yAxisID: 'y1',
+          tension: 0.2
+        },
+        {
+          type: 'bar',
+          label: 'Total Siswa Aktif',
+          data: students,
+          backgroundColor: '#D4AF37', // Gold
+          borderRadius: 4,
+          yAxisID: 'y',
+        }
+      ]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
       plugins: {
         legend: { position: 'top' },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => `Biaya Operasional: Rp ${ctx.parsed.y.toFixed(2)} Jt / siswa`
-          }
-        }
       },
       scales: {
         x: { grid: { display: false } },
         y: {
-          beginAtZero: true,
-          grid: { color: 'rgba(212, 175, 55, 0.1)' },
-          ticks: { callback: (value) => 'Rp ' + value + ' Jt' }
+          type: 'linear',
+          display: true,
+          position: 'left',
+          title: { display: true, text: 'Jumlah Siswa' },
+          grid: { color: 'rgba(212, 175, 55, 0.1)' }
+        },
+        y1: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          title: { display: true, text: 'Jumlah Tutor' },
+          grid: { drawOnChartArea: false } // Only draw grid lines for one axis
         }
       }
     }
@@ -979,7 +1007,7 @@ function renderCohortGrowthChart() {
 }
 
 /**
- * CHART 13: Cash Flow Decomposition (100% Stacked Bar)
+ * CHART 13: Income Statement Decomposition (Absolute Stacked Bar)
  */
 function renderCashflowDecompositionChart() {
   const ctx = document.getElementById('cashflowDecompositionChart');
@@ -990,17 +1018,10 @@ function renderCashflowDecompositionChart() {
   const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
   
   // Raw Data in Billions
-  const gross = [3.22, 4.29, 5.74, 7.21, 8.80, 9.02, 9.97, 10.22, 12.00, 12.30, 11.56, 11.84, 12.14, 14.02, 14.37];
   const cogsRaw = [0.79, 1.13, 1.52, 1.92, 2.38, 2.49, 2.74, 2.86, 3.56, 3.72, 3.61, 3.78, 3.96, 4.80, 5.02];
   const opexRaw = [1.58, 1.63, 1.68, 1.73, 1.78, 2.11, 2.19, 2.46, 2.55, 2.64, 2.50, 2.59, 2.69, 2.78, 2.88];
   const netRaw = [0.65, 1.18, 1.98, 2.76, 3.61, 3.44, 3.94, 3.82, 4.59, 4.63, 4.24, 4.26, 4.28, 5.02, 5.04];
-  
-  // Calculate Percentages (100%)
-  const cogsPct = cogsRaw.map((val, i) => (val / gross[i]) * 100);
-  const opexPct = opexRaw.map((val, i) => (val / gross[i]) * 100);
-  const netPct = netRaw.map((val, i) => (val / gross[i]) * 100);
-  // Tax is the remainder
-  const taxPct = netPct.map((val, i) => 100 - cogsPct[i] - opexPct[i] - val);
+  const taxOthers = [0.20, 0.34, 0.56, 0.79, 1.02, 0.98, 1.11, 1.09, 1.29, 1.31, 1.21, 1.21, 1.21, 1.43, 1.44];
 
   chartInstances['cashflow-decomp'] = new Chart(ctx, {
     type: 'bar',
@@ -1008,24 +1029,28 @@ function renderCashflowDecompositionChart() {
       labels: years,
       datasets: [
         {
-          label: 'Net Profit',
-          data: netPct,
+          label: 'Net Profit (Laba Bersih)',
+          data: netRaw,
           backgroundColor: '#2ECC71', // Green
+          borderRadius: { topLeft: 4, topRight: 4, bottomLeft: 0, bottomRight: 0 }
         },
         {
-          label: 'Tax & Others',
-          data: taxPct,
+          label: 'Tax & Depreciation',
+          data: taxOthers,
           backgroundColor: '#E74C3C', // Redish
+          borderRadius: 0
         },
         {
-          label: 'OPEX',
-          data: opexPct,
+          label: 'OPEX (Biaya Operasional)',
+          data: opexRaw,
           backgroundColor: '#3498DB', // Blue
+          borderRadius: 0
         },
         {
-          label: 'COGS',
-          data: cogsPct,
+          label: 'COGS (Biaya Pokok Kelas)',
+          data: cogsRaw,
           backgroundColor: '#F39C12', // Orange/Yellow
+          borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 4, bottomRight: 4 }
         }
       ]
     },
@@ -1039,7 +1064,7 @@ function renderCashflowDecompositionChart() {
       plugins: {
         tooltip: {
           callbacks: {
-            label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`
+            label: (ctx) => `${ctx.dataset.label}: Rp ${ctx.parsed.y.toFixed(2)} Miliar`
           }
         },
         legend: {
@@ -1054,9 +1079,9 @@ function renderCashflowDecompositionChart() {
         },
         y: {
           stacked: true,
-          max: 100, // Force exactly 100%
+          beginAtZero: true,
           grid: { color: 'rgba(212, 175, 55, 0.1)' },
-          ticks: { callback: (value) => value + '%' }
+          ticks: { callback: (value) => 'Rp ' + value + ' M' }
         }
       }
     }
