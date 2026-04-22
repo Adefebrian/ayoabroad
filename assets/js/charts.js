@@ -701,4 +701,109 @@ function initAllCharts(data) {
   renderJourneyChart();
   renderHeatmap(data);
   renderRangeChart(data);
+  renderFinancialProjectionChart();
+}
+
+/**
+ * CHART 9: 15-Year Financial Projection (Based on Combined_Financial_Modelling.csv)
+ */
+function renderFinancialProjectionChart() {
+  const ctx = document.getElementById('financialProjectionChart');
+  if (!ctx) return;
+
+  if (chartInstances['financial-projection']) {
+    chartInstances['financial-projection'].destroy();
+  }
+
+  // Data from CSV, scaled to Billions (Miliar Rp)
+  const years = ['Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5', 'Yr 6', 'Yr 7', 'Yr 8', 'Yr 9', 'Yr 10', 'Yr 11', 'Yr 12', 'Yr 13', 'Yr 14', 'Yr 15'];
+  const grossRevenue = [3.22, 4.29, 5.74, 7.21, 8.80, 9.02, 9.97, 10.22, 12.00, 12.30, 11.56, 11.84, 12.14, 14.02, 14.37];
+  const netProfit = [0.65, 1.18, 1.98, 2.76, 3.61, 3.44, 3.94, 3.82, 4.59, 4.63, 4.24, 4.26, 4.28, 5.02, 5.04];
+  
+  // Calculate Net Margin percentage for tooltips
+  const netMargin = netProfit.map((np, i) => ((np / grossRevenue[i]) * 100).toFixed(1));
+
+  chartInstances['financial-projection'] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Gross Revenue (Miliar Rp)',
+          data: grossRevenue,
+          borderColor: '#D4AF37', // Gold
+          backgroundColor: 'rgba(212, 175, 55, 0.1)',
+          borderWidth: 3,
+          pointBackgroundColor: '#0D0D0D',
+          pointBorderColor: '#D4AF37',
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          fill: true,
+          tension: 0.4 // Smooth curves
+        },
+        {
+          label: 'Net Profit (Miliar Rp)',
+          data: netProfit,
+          borderColor: '#2ECC71', // Green success
+          backgroundColor: 'rgba(46, 204, 113, 0.1)',
+          borderWidth: 3,
+          pointBackgroundColor: '#0D0D0D',
+          pointBorderColor: '#2ECC71',
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          fill: true,
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                label += 'Rp ' + context.parsed.y.toFixed(2) + ' Miliar';
+              }
+              // If it's Net Profit, show the margin % too
+              if (context.datasetIndex === 1) {
+                label += ` (${netMargin[context.dataIndex]}% Margin)`;
+              }
+              return label;
+            }
+          }
+        },
+        legend: {
+          position: 'top',
+        }
+      },
+      scales: {
+        x: {
+          grid: {
+            color: 'rgba(212, 175, 55, 0.05)',
+          }
+        },
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: 'rgba(212, 175, 55, 0.1)',
+          },
+          ticks: {
+            callback: function(value) {
+              return 'Rp ' + value + ' M';
+            }
+          }
+        }
+      }
+    }
+  });
 }

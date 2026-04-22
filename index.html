@@ -384,7 +384,7 @@
           <h3>B2B Corporate & Executive</h3>
           <p class="biz-card-subtitle">Est. Gross Profit Margin: 73-75%</p>
           <div class="biz-card-body">
-            <p>Melayani secara eksklusif <b>Segmen D (Karyawan Multinasional & Eksekutif)</b> dengan kelas "Business Speaking Intensive". Kelas dioptimalkan menjadi 8 siswa per *cohort* dengan satu *dedicated tutor*, memberikan margin keuntungan kotor tertinggi dan struktur *recurring revenue* yang solid.</p>
+            <p>Melayani secara eksklusif <b>Segmen D (Karyawan Multinasional & Eksekutif)</b> dengan kelas "Business Speaking Intensive". Kelas dioptimalkan menjadi 8 siswa per <b>cohort</b> dengan satu <b>dedicated tutor</b>, memberikan margin keuntungan kotor tertinggi dan struktur <b>recurring revenue</b> yang solid.</p>
             <div class="biz-card-items">
               <div class="biz-item" title="Maksimal 8 Siswa / Tutor untuk Business Speaking">
                 <span class="biz-item-name">Business Speaking Intensive</span>
@@ -414,7 +414,7 @@
           <h3>Lean Operations & AI</h3>
           <p class="biz-card-subtitle">Target Net Profit Margin: 41.0% (Yr 5)</p>
           <div class="biz-card-body">
-            <p>Model bisnis ini sangat efisien secara variabel (COGS hanya biaya cetak + Gaji Tutor). Otomatisasi AI digunakan untuk menekan OPEX statis. Dengan model *Lean*, bisnis diproyeksikan mencetak laba bersih <b>Rp 3.6 Miliar (41% Net Margin) di Tahun ke-5</b>.</p>
+            <p>Model bisnis ini sangat efisien secara variabel (COGS hanya biaya cetak + Gaji Tutor). Otomatisasi AI digunakan untuk menekan OPEX statis. Dengan model <b>Lean</b>, bisnis diproyeksikan mencetak laba bersih <b>Rp 3.6 Miliar (41% Net Margin) di Tahun ke-5</b>.</p>
             <div class="biz-card-items">
               <div class="biz-item" title="Pengurangan staf admin (3-4 orang saja di Tahun 1)">
                 <span class="biz-item-name">Otomatisasi Admin/CS</span>
@@ -429,14 +429,24 @@
                 <span class="biz-item-price">Rp 30 Jt/Bln</span>
               </div>
             </div>
-            <div class="biz-card-tag">Rekomendasi *Fine-Tuning*: Turunkan asumsi staf awal (7 orang) menjadi 3-4 orang untuk akselerasi pertumbuhan laba.</div>
+            <div class="biz-card-tag">Rekomendasi <b>Fine-Tuning</b>: Turunkan asumsi staf awal (7 orang) menjadi 3-4 orang untuk akselerasi pertumbuhan laba.</div>
           </div>
         </div>
 
       </div>
 
-      
       <div style="height: 60px;"></div>
+
+      <!-- Financial Projection Chart -->
+      <div class="glass-card" style="padding: var(--space-2xl); margin-bottom: var(--space-3xl);">
+        <div class="chart-header" style="margin-bottom: var(--space-xl); text-align: center;">
+          <h3 style="font-size: var(--text-h3); color: var(--color-gold-500); margin-bottom: 8px;">Proyeksi Finansial 15-Tahun (Berdasarkan Model)</h3>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-small);">Pendapatan Kotor vs Laba Bersih (dalam Miliar Rupiah). Target Net Margin stabil di ~35-41% mulai Tahun ke-5.</p>
+        </div>
+        <div class="chart-wrapper" style="height: 400px; width: 100%;">
+          <canvas id="financialProjectionChart"></canvas>
+        </div>
+      </div>
 
       <!-- Summary Insight -->
       <div class="glass-card insight-box" style="margin-top: var(--space-3xl);">
