@@ -62,45 +62,38 @@ Website ini adalah **pitching deck interaktif berbasis web** untuk:
 
 ### 1.3 Model Bisnis & Revenue Streams
 
-Ayoabroad! dirancang dengan arsitektur pendapatan 3 pilar yang saling memperkuat:
+Ayoabroad! dirancang dengan arsitektur pendapatan 3 pilar yang secara matematis diselaraskan dengan proyeksi *Financial Modelling* (Target 15-Tahun):
 
-#### Pilar 1: B2C Premium & Bundling (Revenue Utama)
+#### Pilar 1: B2C Premium & Bundling (Stream 1 & 2)
+Melayani Segmen A, B, dan C dengan model monetisasi yang disesuaikan dengan sensitivitas harga dan profil pembeli. Memiliki target **Gross Revenue Year 5 sebesar Rp 8,8 Miliar**.
 
-| Produk | Target | Estimasi Harga | Model Pembayaran |
-|--------|--------|----------------|------------------|
-| Bundel Study Abroad Complete | Segmen A (SMA) | Rp 15-25 Jt | Cicilan 6-12 bulan / BNPL |
-| Bundel Work Abroad Ready | Segmen B (Fresh Grad) | Rp 8-18 Jt | Cicilan 3-6 bulan |
-| Bundel Immigration Path | Segmen C (Profesional) | Rp 20-35 Jt | Cicilan 12 bulan |
-| Paket Kursus Satuan (IELTS/GMAT) | Semua | Rp 3-8 Jt | Bayar langsung |
+| Produk | Target | Estimasi Harga | Model Pembayaran | Kontribusi Finansial |
+|--------|--------|----------------|------------------|----------------------|
+| Bundel Study/Immigration | Segmen A & C | Diskon 15% dari total | Cicilan / Cash | *Upselling strategy* untuk meningkatkan LTV (Customer Lifetime Value) |
+| Stream 1: English Academy | Segmen A, B, C | Rp 2 - 2,5 Jt / kelas | Bayar langsung / Cicilan | Akuisisi volume (IELTS, TOEFL, Foundation). |
+| Stream 2: Admission Tests | Segmen A, C | Rp 2,5 - 3,5 Jt / kelas | Bayar langsung | Margin tinggi karena spesialisasi (SAT, GRE, GMAT). |
 
-**Strategi Kunci:** Bundling all-in-one yang menggabungkan kursus bahasa + konsultasi + dokumen + visa dalam satu paket lebih murah dari beli terpisah. Memberikan cicilan/BNPL (Buy Now Pay Later) untuk menjangkau Gen Z yang belum memiliki daya beli besar.
+**Strategi Kunci:** Bundling all-in-one yang menggabungkan kursus bahasa + konsultasi (Stream 1 + Stream 2). Memberikan fasilitas cicilan/BNPL sangat vital untuk Segmen A dan B guna memastikan konversi *Lead-to-Sales*.
 
-**Model Freemium sebagai Top-of-Funnel:**
-- Gratis: Placement test AI, konsultasi awal via chatbot, database universitas/lowongan
-- Berbayar: Kursus intensif, mentoring 1-on-1, dokumen handling, garansi skor
+#### Pilar 2: B2B Corporate English (High Margin)
+Model bisnis khusus untuk melayani Segmen D (Karyawan Multinasional) dengan produk andalan **Business Speaking Intensive**.
 
-#### Pilar 2: B2B Corporate English (Revenue Berulang)
+| Produk | Target | Kapasitas | Estimasi Margin Kotor |
+|--------|--------|-----------|-----------------------|
+| Business Speaking Intensive | Eksekutif & B2B | Max 8 Siswa / Cohort | **~73% - 75%** |
 
-| Produk | Target | Estimasi Harga | Model |
-|--------|--------|----------------|-------|
-| Corporate English Program | Perusahaan multinasional | Rp 5-15 Jt/karyawan/tahun | Kontrak tahunan |
-| Industry-Specific English | Startup, manufaktur | Rp 3-8 Jt/karyawan/6 bulan | Per batch |
-| Executive Communication | C-Level / Manager | Rp 15-25 Jt/orang | Private coaching |
+**Strategi Kunci:** Menawarkan kelas intensif dengan jumlah siswa lebih sedikit (8 siswa vs 12 siswa reguler) dengan harga premium. Model ini menghasilkan *recurring revenue* B2B dengan proyeksi pertumbuhan jumlah Tutor dari 8 (Tahun 1) menjadi 29 (Tahun 15).
 
-**Strategi Kunci:** Mengisi celah pasar yang masih kosong: English korporat dengan kurikulum industri-spesifik (bukan generic). Dari 31 kompetitor, hanya 2-3 yang menyentuh B2B, dan tidak satupun yang menawarkan kurikulum yang di-tailor per industri.
+#### Pilar 3: AI-First & Lean OPEX Control (Margin Booster)
+Efisiensi operasional berbasis AI untuk mencapai target **Net Profit Margin stabil di 35% - 41%**.
 
-#### Pilar 3: AI-First Cost Efficiency (Margin Booster)
+| Area Optimalisasi | Strategi "Lean" | Penghematan Finansial |
+|-------------------|-----------------|-----------------------|
+| Gaji Staf Admin/CS | Menggunakan AI Chatbot (Otomatisasi) | Menurunkan proyeksi staf awal dari 7 menjadi 3-4 orang. |
+| Re-alokasi Budget | Mengalihkan sisa gaji staf ke akuisisi user | Budget Marketing tetap stabil di Rp 50 Jt/bulan tanpa *burn rate* tenaga manusia. |
+| Utilisasi Kelas | Fleksibilitas jadwal (Pagi, Sore, Malam) | Menahan laju beban Sewa Kantor tetap di ~Rp 30 Jt/bulan meskipun kelas (cohort) bertambah dari 8 ke 29. |
 
-AI bukan sekadar fitur pemasaran. AI adalah inti dari struktur biaya Ayoabroad! yang memungkinkan margin profit lebih tinggi dari kompetitor konvensional:
-
-| Fungsi AI | Mengganti | Penghematan |
-|-----------|-----------|-------------|
-| AI Chatbot Konsultasi 24/7 | 2-3 konselor junior (Rp 5-8 Jt/bulan/orang) | ~Rp 15-24 Jt/bulan |
-| AI Placement Test & Scoring | Manual placement test (waktu + SDM) | ~Rp 5 Jt/bulan |
-| AI University/Job Matching | Manual research oleh konselor | ~Rp 10 Jt/bulan |
-| AI Personalisasi Kurikulum | Kurikulum one-size-fits-all | Peningkatan retention rate |
-
-**Total estimasi penghematan operasional: Rp 30-40 Jt/bulan** dibanding lembaga konvensional dengan skala yang sama. Ini memungkinkan Ayoabroad menawarkan harga lebih kompetitif dengan margin yang tetap sehat.
+**Total estimasi penghematan:** Model ini memastikan laba bersih dapat menembus **Rp 3,6 Miliar pada Tahun ke-5** dengan struktur biaya OPEX yang sangat terkontrol.
 
 ---
 

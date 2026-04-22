@@ -143,31 +143,43 @@ function renderExecutiveSummary(data) {
       icon: 'graduation-cap',
       title: 'Segmen A: Lulusan SMA',
       profile: '17-19 tahun, ingin S1 di luar negeri',
-      desc: 'Membutuhkan IELTS/SAT + konsultasi universitas + bantuan beasiswa. Sensitif harga, bergantung pada orang tua.'
+      desc: 'Membutuhkan IELTS/SAT + konsultasi universitas + bantuan beasiswa. Sensitif harga, bergantung pada orang tua.',
+      colorClass: 'segment-a-accent',
+      iconColor: '#3498DB',
+      iconBg: 'rgba(52, 152, 219, 0.12)'
     },
     {
       icon: 'briefcase',
       title: 'Segmen B: Fresh Graduate',
       profile: '21-25 tahun, ingin kerja luar negeri',
-      desc: 'Butuh bahasa kerja + CV/portofolio + visa WHV/Ausbildung. Aktif mencari peluang, anggaran terbatas.'
+      desc: 'Butuh bahasa kerja + CV/portofolio + visa WHV/Ausbildung. Aktif mencari peluang, anggaran terbatas.',
+      colorClass: 'segment-b-accent',
+      iconColor: '#F39C12',
+      iconBg: 'rgba(243, 156, 18, 0.12)'
     },
     {
       icon: 'globe',
       title: 'Segmen C: Profesional Imigrasi',
       profile: '25-40 tahun, ingin pindah permanen',
-      desc: 'IELTS + Global Talent Visa + network settling. Budget lebih besar, butuh layanan premium end-to-end.'
+      desc: 'IELTS + Global Talent Visa + network settling. Budget lebih besar, butuh layanan premium end-to-end.',
+      colorClass: 'segment-c-accent',
+      iconColor: '#2ECC71',
+      iconBg: 'rgba(46, 204, 113, 0.12)'
     },
     {
       icon: 'building',
       title: 'Segmen D: Karyawan Multinasional',
       profile: '25-45 tahun, butuh upgrade bahasa',
-      desc: 'Business English + komunikasi lintas budaya. B2B model, dibiayai perusahaan, butuh jadwal fleksibel.'
+      desc: 'Business English + komunikasi lintas budaya. B2B model, dibiayai perusahaan, butuh jadwal fleksibel.',
+      colorClass: 'segment-d-accent',
+      iconColor: '#9B59B6',
+      iconBg: 'rgba(155, 89, 182, 0.12)'
     }
   ];
 
   cardsContainer.innerHTML = audiences.map(a => `
-    <div class="glass-card segment-card">
-      <div class="segment-card-icon">${getIcon(a.icon, 24)}</div>
+    <div class="glass-card segment-card ${a.colorClass}" style="--accent-color: ${a.iconColor};">
+      <div class="segment-card-icon" style="background: ${a.iconBg}; color: ${a.iconColor};">${getIcon(a.icon, 24)}</div>
       <h3>${a.title}</h3>
       <div class="card-profile">${a.profile}</div>
       <p>${a.desc}</p>

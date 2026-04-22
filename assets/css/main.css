@@ -582,6 +582,29 @@ section {
 
 .segment-card {
   padding: var(--space-2xl);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.segment-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-color);
+}
+
+.segment-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.segment-card:hover::before {
+  opacity: 1;
 }
 
 .segment-card-icon {
@@ -594,6 +617,11 @@ section {
   margin-bottom: var(--space-lg);
   background: rgba(212, 175, 55, 0.1);
   color: var(--color-gold-500);
+  transition: transform 0.3s ease;
+}
+
+.segment-card:hover .segment-card-icon {
+  transform: scale(1.1);
 }
 
 .segment-card h3 {
@@ -604,7 +632,7 @@ section {
 
 .segment-card .card-profile {
   font-size: var(--text-small);
-  color: var(--color-gold-500);
+  color: var(--accent-color);
   margin-bottom: var(--space-md);
   font-weight: 500;
 }
